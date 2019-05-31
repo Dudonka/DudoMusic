@@ -27,13 +27,13 @@
                 <form class="form-group  m-3 d-inline-block">
                     <input id="login" type="text" placeholder="Логин" name="login"><br><br>
                     <input id="password" type="text" placeholder="Пароль" name="password"><br><br>
-                    <div id="information"></div>
+                    <div id="information"><br></div>
                     <input type="button" id="login_u" value="Войти" >
                 </form>
                 <form class="form-group m-3 d-inline-block">
                     <input id="r_login" type="text" placeholder="Логин" name="login"><br><br>
                     <input id="r_password" type="text" placeholder="Пароль" name="password"><br><br>
-                    <div id="r_information"></div>
+                    <div id="r_information"><br></div>
                     <input type="button" id="registr" value="Зарегистрироваться" >
                 </form>
             </div>
@@ -73,7 +73,7 @@
 
                 },
                 success: function (data){
-                    alert(data);
+
                     if(data=="Занято"){
                         $("#r_information").text("Такой логин уже занят");
                     }else {

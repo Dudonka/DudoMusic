@@ -2,9 +2,10 @@
 include 'scripts/connection.php';
 $login=$_POST['login'];
 $password=$_POST['password'];
-$count = mysqli_query($connection,"SELECT * FROM `users` WHERE `login`='$login' AND `password`='$password'");
+
 
 if ($_POST['input']=="Войти"){
+    $count = mysqli_query($connection,"SELECT * FROM `users` WHERE `login`='$login' AND `password`='$password'");
     if (mysqli_num_rows($count)==0){
         echo "Fail";
 
@@ -19,9 +20,10 @@ if ($_POST['input']=="Войти"){
     }
 }
 if ($_POST['input']=="Зарегистрироваться"){
-
+    $count = mysqli_query($connection,"SELECT * FROM `users` WHERE `login`='$login'");
     if (mysqli_num_rows($count)==0){
-        mysqli_query($connection," INSERT INTO `users` (`id`, `login`, `password`, `image`, `type`) VALUES (NULL, '$login', '$password', '' , 'user')");
+        mysqli_query($connection," INSERT INTO `users` (`id`, `login`, `password`, `image`, `type`, `playlist`, `albums`) VALUES (NULL, '$login', '$password', '' , 'user', NULL, '')");
+
         echo 'Зарегистрировались';
     }
     else{

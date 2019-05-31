@@ -87,11 +87,6 @@ $(document).ready(function () {
         })
     })
 
-
-
-
-
-
 })
 
 function text(id,number) {

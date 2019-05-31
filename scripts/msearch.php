@@ -11,7 +11,7 @@ $number=0;
             while (($song=mysqli_fetch_assoc($count)))
             {$number++;
             ?>
-            <li style="display: block"><button class="btn btn-link m-1" style="margin: 0; width: 3%; background: none" id="song<?php echo $number?>" value="<?php echo $song['location']?>" onclick="change('<?php echo $song['location']?>','<?php echo $number?>')"><img src="play.png"></button>
+                <li class="d-block" ><button style="margin: 0; width: 3%; background: none;border: none;" id="song<?php echo $number?>" value="<?php echo $song['location']?>" onclick="change('<?php echo $song['location']?>','<?php echo $number?>')"><img id="img<?php echo $number?>" src="play.png"></button>
                 <?php
                 echo '<a href="../artistpage.php?name='.$song['aname'].'" >'.$song['aname'].'</a> - '.$song['sname'];
                 ?> <button style="float:right;margin-right:50%; margin-top: 20px;height: 20px;width: 20px;background-size: cover;border: none;background-color: white" class="done " value="<?php echo $song['id']?>"><img src="add.png"></button><br><br></li><?php

@@ -11,7 +11,7 @@ if ($_COOKIE['login']=='') {
 <div class="container p-1">
 <!--    Популярное статьи и исполнители-->
 <div class="row p-1" >
-        <div class="border m-2 col   bg-white"><?php $_GET='news'?>
+        <div class="border m-2 col  bg-white"><?php $_GET='news'?>
             <a href="allarticlesview.php?type=news"><h2 class="text-info">Последние новости и релизы</h2></a>
             <div class="row">
                 <!--        Вывод последний статей-->
@@ -60,14 +60,14 @@ if ($_COOKIE['login']=='') {
 
 <!--Популярные песни и табы   -->
     <div class="row " >
-        <div class="border m-2 col float-left bg-white "><?php $_GET='news'?>
+        <div class="border m-2 col float-left bg-white"><?php $_GET='news'?>
             <h2 class="text-info">Популярные табы</h2>
             <?php
             $result = mysqli_query($connection,"SELECT * FROM `articles` WHERE `type`='tab' limit 4");
 
             while (($articles=mysqli_fetch_assoc($result)))
             {   ?>
-            <div class="card col-5" style="background: url(<?php echo $articles['image']?>)  no-repeat;background-size:cover; margin-left: 2rem; margin-top: 1rem">
+            <div class="card col-5 float-left" style="background: url(<?php echo $articles['image']?>)  no-repeat;background-size:cover; margin-left: 2rem; margin-top: 1rem; height: rem;">
                 <?php
                 //        echo '<img class=" img-fluid "  src='.$articles['image'].' ><br>';?>
                 <div class="card-body row align-content-end" ><?php

@@ -27,8 +27,10 @@ if (isset($_COOKIE['login'])==false){echo '<h3 class="alert-danger">'.'Войд�
 while (($comment=mysqli_fetch_assoc($result)))
 {?>
 <div class="text-black-50 alert-info" >
+    <div id="result"></div>
     <?php
-    if ($_COOKIE['type']=="admin"){ echo '<a class="float-right" href="scripts/deleteCom.php?id='.$comment['id'].'">Удалить Комментарий</a>';}
+//    if ($_COOKIE['type']=="admin"){ echo '<a class="float-right" href="scripts/deleteCom.php?id='.$comment['id'].'">Удалить Комментарий</a>';}
+    if ($_COOKIE['type']=="admin"){ echo '<button class="del float-right btn btn-link"  onclick="" value="'.$comment['id'].'">Удалить комментарий</button>';}
     echo '<h4>'.$comment['login'].'</h4>';
 
     echo $comment['text'];
@@ -38,5 +40,19 @@ while (($comment=mysqli_fetch_assoc($result)))
 }
 ?>
 </div>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
 
+    $(".del").bind("click",function () {
+        $.ajax({
+            url: "scripts/deleteCom.php",
+            type: "POST",
+            data: ({id: $(this).val()}),
+            dataType: "html",
+            success: function (data){
+                $('#result').html('комментарий удалён');
+            }
+        })
+    })
 
+</script>

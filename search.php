@@ -53,7 +53,7 @@ $word=$_GET['search'];
                         <?php
                         echo '<a href="../artistpage.php?name='.$song['aname'].'" >'.$song['aname'].'</a> - '.$song['sname'].'</li>';
                         }}
-                        ?><br><?php if($number==6){
+                        ?><br><?php if($number==5){
                             ?><a style="margin-left: 3rem" href="music.php?search=<?php echo $word;?>">Посмотреть все песни</a><?php
                         } ?>
                 </ul>
@@ -81,14 +81,12 @@ $word=$_GET['search'];
                     while (($articles=mysqli_fetch_assoc($count)))
                     {   ?>
                         <div class="card col-2 " style="background: url(<?php echo $articles['image']?>)  no-repeat;background-size:cover; margin-left: 2rem; margin-top: 1rem">
-
                             <div class="card-body row align-content-end" ><?php
                                 echo '<a href="articlepage.php?id='.$articles['id'].'"><h4 class="text-white" style="-webkit-text-stroke: 1px black;">'.$articles['name'].'</h4></a>';
                                 $done=true;
                                 echo '<p class="text-white" >'.$articles['pubdate'].'</p>';?>
                             </div>
                         </div>
-
                         <?php
                     }
                 }
@@ -98,16 +96,10 @@ $word=$_GET['search'];
             }
             ?>
             </div>
-
-
              </div>
-
-
             </div>
         </div>
     </div>
-
-
 
     <!--Подключение бустрапа-->
     <script src="js/jquery-3.4.1.min.js"></script>
