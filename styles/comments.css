@@ -1,0 +1,23 @@
+.comments{
+    color: #FFFFFF;
+    padding: 15px;
+}
+
+.comment{
+    margin: 15px;
+    padding: 5px;
+    background-color:rgba(0,238,255,0.12);
+}
+
+.comment h4{
+    margin: 1px;
+}
+
+.cominput{
+    margin-left: 15px;
+}
+.cominput textarea{
+    width: 70%;
+    height: 120px;
+
+}
