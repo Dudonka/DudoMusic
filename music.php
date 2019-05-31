@@ -58,7 +58,7 @@ if ($_COOKIE['login']=='') {
     <div class="float-right">
         <h2>Плейлисты</h2>
         <button type="button" class="playlist" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-p">
-            Launch demo modal
+            Playlist 1
         </button>
         <div class="modal" id="exampleModal-p" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -76,21 +76,6 @@ if ($_COOKIE['login']=='') {
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
     <script src="scripts/player.js"></script>
 
