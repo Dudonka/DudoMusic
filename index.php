@@ -67,7 +67,7 @@ if ($_COOKIE['login']=='') {
 
             while (($articles=mysqli_fetch_assoc($result)))
             {   ?>
-            <div class="card col-5 float-left" style="background: url(<?php echo $articles['image']?>)  no-repeat;background-size:cover; margin-left: 2rem; margin-top: 1rem; height: rem;">
+            <div class="card col-5 float-left" style="background: url(<?php echo $articles['image']?>)  no-repeat;background-size:cover; margin-left: 2rem; margin-top: 1rem; height: 8rem;">
                 <?php
                 //        echo '<img class=" img-fluid "  src='.$articles['image'].' ><br>';?>
                 <div class="card-body row align-content-end" ><?php
