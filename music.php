@@ -63,14 +63,17 @@ if ($_COOKIE['login']=='') {
         while (($p_list=mysqli_fetch_assoc($result)))
         {
             $playlists=explode(",",$p_list['albums']);
-            echo $playlists;
-        }
 
-//        $playlists=explode(",",$result['albums']);
-
-        echo '<button type="button" class="playlist" class="btn btn-info" data-toggle="modal" data-target="#exampleModal-p">
+            for ($i=0;$i<=count($playlists);$i++){
+                $result=mysqli_query($connection,"SELECT * FROM `playlists` WHERE `id`='$i'");
+                while (($list=mysqli_fetch_assoc($result))){
+                echo '<button type="button" class="playlist" class="btn btn-info" data-toggle="modal" data-target="#exampleModal-p">
             <h2 class="text-white">Playlist</h2>
-        </button>'        ?>
+        </button>';
+                }
+            }
+        }
+        ?>
         <div class="modal" id="exampleModal-p" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
