@@ -57,9 +57,20 @@ if ($_COOKIE['login']=='') {
     </div>
     <div class="float-right">
         <h2>Плейлисты</h2>
-        <button type="button" class="playlist" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-p">
-            Playlist 1
-        </button>
+        <style> .playlist{ background: url("img/vinyl.png"); width: 200px;height: 200px; background-size: cover; border-radius: 6px;}</style>
+        <?php
+        $result=mysqli_query($connection, "SELECT `albums` FROM `users` WHERE `login`='$login'");
+        while (($p_list=mysqli_fetch_assoc($result)))
+        {
+            $playlists=explode(",",$p_list['albums']);
+            echo $playlists;
+        }
+
+//        $playlists=explode(",",$result['albums']);
+
+        echo '<button type="button" class="playlist" class="btn btn-info" data-toggle="modal" data-target="#exampleModal-p">
+            <h2 class="text-white">Playlist</h2>
+        </button>'        ?>
         <div class="modal" id="exampleModal-p" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
