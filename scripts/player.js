@@ -75,14 +75,19 @@ $(document).ready(function () {
     })
 
     $(".playlist").bind("click",function () {
+        var id=$(this).attr('value');
+        var name=$(this).find('h2').html();
 
+
+        $('.modal-title').html(name);
         $.ajax({
             url: "scripts/playlistshow.php",
             type: "POST",
-            data: ({id: $(this).val()}),
+            data: ({id: id}),
             dataType: "html",
             success: function (data){
             $('.modal-body').html(data);
+
             }
         })
     })
