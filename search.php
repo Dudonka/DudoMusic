@@ -41,7 +41,7 @@ $word=$_GET['search'];
                 echo '<h4>Песни:</h4>';
 
                 if(mysqli_num_rows($result)==0){echo "Не найдено";}else{
-                echo '<div><audio id="player" controls=\'controls\'src="" preload="auto" style="width: 90%; margin: 3%" /></div><script src="scripts/player.js"></script>';
+                echo '<div><audio id="player" controls=\'controls\'src="" preload="auto" style="width: 90%; " /></div><script src="scripts/player.js"></script>';
 
                 ?>
             <nav class="" style="width: 100%; ">
@@ -54,7 +54,7 @@ $word=$_GET['search'];
                         echo '<a href="../artistpage.php?name='.$song['aname'].'" >'.$song['aname'].'</a> - '.$song['sname'].'</li>';
                         }}
                         ?><br><?php if($number==5){
-                            ?><a style="margin-left: 3rem" href="music.php?search=<?php echo $word;?>">Посмотреть все песни</a><?php
+                            ?><a href="music.php?search=<?php echo $word;?>">Посмотреть все песни</a><?php
                         } ?>
                 </ul>
 
