@@ -28,6 +28,46 @@ include 'includes/header.php';
         }
         ?>
 
+
+        <div class="float-left" style="margin-left: 2rem">
+            <h2>Альбомы</h2>
+            <div class="row">
+                <style> .playlist{  width: 200px;height: 190px; background-size: cover; border-radius: 6px; margin-right: 1rem;}</style>
+                <?php
+                $result = mysqli_query($connection,"SELECT * FROM `artists` WHERE `name`='$artistname'");
+                while (($artist=mysqli_fetch_assoc($result)))
+                {
+                    $playlists=explode(",",$p_list['albums']);
+                    for ($i=0;$i<=count($playlists);$i++){
+                        $result=mysqli_query($connection,"SELECT * FROM `playlists` WHERE `id`='$i'");
+                        while (($list=mysqli_fetch_assoc($result))){
+                            echo '<button type="button" class="playlist" class="btn btn-info m-2" data-toggle="modal" data-target="#exampleModal-p" style="background: url('.$list['image'].') no-repeat">
+            <h2 class="text-white">'.$list['name'].'</h2>
+        </button>';
+                        }
+                    }
+                }
+                ?></div>
+            <div class="modal" id="exampleModal-p" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         <div><audio id="player" controls='controls'src="" preload="auto" style="width: 90%; margin: 3%" /></div>
 
         <?php
