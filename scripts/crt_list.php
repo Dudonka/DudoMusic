@@ -44,7 +44,9 @@ for ($i=0;$i<=count($sing)-1;$i++){
             data: ({name: name, songs: songs,artist:artist}),
             dataType: "html",
             success: function (data){
-                window.location.reload();
+            // window.location.reload()
+                alert(name);
+                alert(data);
 
             }
         })
