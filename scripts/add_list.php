@@ -6,7 +6,7 @@ $artist=$_POST['artist'];
 
 if($artist!='')
 {
-    $result = mysqli_query($connection,"INSERT INTO `playlists` (`id`, `name`, `author`, `image`, `songlist`, `type`) VALUES (NULL, '$name', '', 'img/$file_name', '$songlist', 'album');");
+    $result = mysqli_query($connection,"INSERT INTO `playlists` (`id`, `name`, `author`, `image`, `songlist`, `type`) VALUES (NULL, '$name', '', '', '$songlist', 'album');");
     $result=mysqli_query($connection, "SELECT * FROM `playlists` ORDER BY `id` DESC limit 1");
     while (($list=mysqli_fetch_assoc($result)))
     {
@@ -23,7 +23,7 @@ if($artist!='')
 
 
 }else{
-$result = mysqli_query($connection,"INSERT INTO `playlists` (`id`, `name`, `author`, `image`, `songlist`, `type`) VALUES (NULL, '$name', '', 'img/$file_name', '$songlist', 'personal');");
+$result = mysqli_query($connection,"INSERT INTO `playlists` (`id`, `name`, `author`, `image`, `songlist`, `type`) VALUES (NULL, '$name', '', '', '$songlist', 'personal');");
 $result=mysqli_query($connection, "SELECT * FROM `playlists` ORDER BY `id` DESC limit 1");
 
 while (($list=mysqli_fetch_assoc($result)))

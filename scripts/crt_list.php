@@ -35,7 +35,7 @@ for ($i=0;$i<=count($sing)-1;$i++){
         var name=$('#pls_name').val();
         var box=$('.check');
         var artist=$('#artist').val();
-        alert(box.length);
+        
         for (var i=0;i<=box.length;i++){
             if($(box[i]).prop("checked")==true){
             songs=songs+($(box[i]).attr('value'))+','}
