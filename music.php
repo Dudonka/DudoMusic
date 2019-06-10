@@ -42,10 +42,10 @@ if ($_COOKIE['login']=='') {
                 while (($song=mysqli_fetch_assoc($result)))
                 {$number++;
                 ?>
-                <li class="nav" ><button style="margin: 0; width: 3%; background: none;border: none;" id="song<?php echo $number?>" value="<?php echo $song['location']?>" onclick="change('<?php echo $song['location']?>','<?php echo $number?>')"><img id="img<?php echo $number?>" src="play.png"></button>
+                <li class="nav" ><button style="margin: 0; width: 3%; background: none;border: none;margin-right: 5px" id="song<?php echo $number?>" value="<?php echo $song['location']?>" onclick="change('<?php echo $song['location']?>','<?php echo $number?>')"><img id="img<?php echo $number?>" src="play.png"></button>
                     <?php
                     echo '<a href="../artistpage.php?name='.$song['aname'].'" >'.$song['aname'].'</a> - '.$song['sname'].'</li>';
-                    echo '<div class="lyr_text"><button class="lyric btn-light" onclick="text('.$song['id'].','.$number.')">Посмотреть текст</button><p class="p_lyr'.$number.'"></p></div>';
+                    echo '<div class="lyr_text"><button class="lyric btn btn-light" onclick="text('.$song['id'].','.$number.')">Посмотреть текст</button><p class="p_lyr'.$number.'"></p></div>';
                     }
                     ?>
             </ul>
@@ -57,7 +57,8 @@ if ($_COOKIE['login']=='') {
     </div>
     <div class="float-right">
         <h2>Плейлисты</h2>
-        <style> .playlist{ background: url("img/vinyl.png"); width: 200px;height: 200px; background-size: cover; border-radius: 6px;}</style>
+        <div class="row">
+        <style> .playlist{  width: 200px;height: 190px; background-size: cover; border-radius: 6px; margin-right: 1rem;}</style>
         <?php
         $result=mysqli_query($connection, "SELECT `albums` FROM `users` WHERE `login`='$login'");
         while (($p_list=mysqli_fetch_assoc($result)))
@@ -67,13 +68,13 @@ if ($_COOKIE['login']=='') {
             for ($i=0;$i<=count($playlists);$i++){
                 $result=mysqli_query($connection,"SELECT * FROM `playlists` WHERE `id`='$i'");
                 while (($list=mysqli_fetch_assoc($result))){
-                echo '<button type="button" class="playlist" class="btn btn-info" data-toggle="modal" data-target="#exampleModal-p">
-            <h2 class="text-white">Playlist</h2>
+                echo '<button type="button" class="playlist" class="btn btn-info m-2" data-toggle="modal" data-target="#exampleModal-p" style="background: url('.$list['image'].') no-repeat">
+            <h2 class="text-white">'.$list['name'].'</h2>
         </button>';
                 }
             }
         }
-        ?>
+        ?></div>
         <div class="modal" id="exampleModal-p" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

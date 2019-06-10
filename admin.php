@@ -16,7 +16,7 @@ include 'includes/header.php'?>
                 <button class="btn btn-primary" value="news" >Создать новость</button>
             </li>
             <li class="m-2">
-                <button class="btn btn-primary" value="artist">Создать артиста</button>
+                <button class="btn btn-primary" value="artists">Создать артиста</button>
             </li>
             <li class="m-2">
                 <button class="btn btn-primary" value="tab">Создать табы</button>

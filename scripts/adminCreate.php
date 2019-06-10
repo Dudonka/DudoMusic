@@ -17,11 +17,11 @@ move_uploaded_file($file_tmp,'../img/'.$file_name);
 include '../scripts/connection.php';
 
 
-if ($type=="article"or $type=="news" or $type="tab"){
+if ($type=="article"or $type=="news" or $type=="tab"){
     $result = mysqli_query($connection,"INSERT INTO `articles` (`id`, `name`, `text`, `image`, `type`, `pubdate`, `tags`) VALUES (NULL, '$head', '$text', 'img/$file_name', '$type', CURRENT_TIMESTAMP, '')");
 }
 
-if($type=="artist"){
+if($type=="artists"){
     $result=mysqli_query($connection,"SELECT * FROM `artists` WHERE `name`='$head'");
     if (mysqli_num_rows($result)==0){
         $result=mysqli_query($connection,"INSERT INTO `artists` (`id`, `name`, `text`, `image`, `listenings`) VALUES (NULL, '$head', '$text', 'img/$file_name', '0')");

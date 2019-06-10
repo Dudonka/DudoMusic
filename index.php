@@ -13,7 +13,7 @@ if ($_COOKIE['login']=='') {
 <div class="row p-1" >
         <div class="border m-2 col  bg-white"><?php $_GET='news'?>
             <a href="allarticlesview.php?type=news"><h2 class="text-info">Последние новости и релизы</h2></a>
-            <div class="row">
+            <div class="row" style="padding-bottom: 4px">
                 <!--        Вывод последний статей-->
                 <?php
                 include 'scripts/connection.php';
@@ -23,9 +23,9 @@ if ($_COOKIE['login']=='') {
 
                 while (($articles=mysqli_fetch_assoc($result)))
                 {   ?>
-                    <div class="card col-5" style="background: url(<?php echo $articles['image']?>)  no-repeat;background-size:cover; margin-left: 2rem; margin-top: 1rem">
+                    <div class="card col-5" style="background: url(<?php echo $articles['image']?>)  no-repeat;background-size:cover; margin-left: 2rem; margin-top: 1rem; height: 14rem;">
                         <div class="card-body row align-content-end" ><?php
-                            echo '<a href="articlepage.php?id='.$articles['id'].'"><h4 class="text-white" style="-webkit-text-stroke: 1px black;">'.$articles['name'].'</h4></a>';
+                            echo '<a href="articlepage.php?id='.$articles['id'].'"><h4 class="text-white" style="-webkit-text-stroke: 1px black; font-size: 133%">'.$articles['name'].'</h4></a>';
                             echo '<p class="text-white" >'.$articles['pubdate'].'</p>';?>
                         </div>
                     </div>
@@ -44,7 +44,7 @@ if ($_COOKIE['login']=='') {
 
                 while (($artist=mysqli_fetch_assoc($result)))
                 {   ?>
-                    <div class="card col-lg-5 float-left m-3" style="background: url(<?php echo $artist['image']?>)  no-repeat;background-size:cover; height: 7rem">
+                    <div class="card col-lg-5 float-left m-3" style="background: url(<?php echo $artist['image']?>)  no-repeat;background-size:cover; height: 8rem">
                        <?php
                             echo '<a  href="artistpage.php?name='.$artist['name'].'"><h4 class="text-white " style="-webkit-text-stroke: 1px black;">'.$artist['name'].'</h4></a>';?>
 

@@ -13,7 +13,8 @@ include 'includes/header.php'; ?>
 
 
         while (($tab=mysqli_fetch_assoc($result)))
-        {   ?><div class="m-2 row btn-group-vertical"><?php
+        {   if ($_COOKIE['type']=="admin"){ echo '<a href="scripts/deleteArticle.php?id='.$articleid.'">Удалить</a>';}
+            ?><div class="m-2 row btn-group-vertical"><?php
             echo '<h2 class="float-left m-3">'.$tab['name'].'</h2><br>';
             echo '<div class=""><img class="float-left m-3"  src='.$tab['image'].'></div><br>';
         }

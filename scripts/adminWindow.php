@@ -3,7 +3,7 @@ $type=$_POST['type'];
 
 if($type=="article"){echo "<h2>Создать статью</h2>";}
 if($type=="news"){echo "<h2>Создать новость</h2>";}
-if($type=="artist"){echo "<h2>Создать артиста</h2>";}
+if($type=="artists"){echo "<h2>Создать артиста</h2>";}
 if($type=="tab"){echo "<h2>Создать табы</h2>";}
 
 ?>
