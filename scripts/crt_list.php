@@ -10,7 +10,7 @@ $sing=explode(",",$list);
 ?><?php
 echo '<input id="pls_name" placeholder="Название плейлиста"><br>';
 
-if($_COOKIE['type']=='admin'){echo '<input class="float-left" id="artist" placeholder="Альбом музыканта"><br>';}
+if($_COOKIE['type']=='admin'){echo '<input class="float-left" id="artist" placeholder="Альбом музыканта"><br><br>';}
 echo '<button class="float-left" id="crt_done">Добавить</button><br>';
 for ($i=0;$i<=count($sing)-1;$i++){
     $result=mysqli_query($connection,"SELECT * FROM `songlist` WHERE `id`='$sing[$i]'");
@@ -47,9 +47,8 @@ for ($i=0;$i<=count($sing)-1;$i++){
             data: ({name: name, songs: songs,artist:artist}),
             dataType: "html",
             success: function (data){
-            // window.location.reload()
-                alert(name);
-                alert(data);
+            window.location.reload()
+
 
             }
         })

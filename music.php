@@ -7,8 +7,8 @@ if ($_COOKIE['login']=='') {
 
 ?>
 <script src="js/jquery-3.4.1.min.js"></script>
-<style> .playlist{  width: 200px;height: 190px; background-size: cover; border-radius: 6px; margin-right: 1rem; margin-bottom: 15%}</style>
-<main class="p-2">
+<style> .playlist{  width: 200px;height: 190px; background-size: cover; border-radius: 6px; margin-right: 1rem; margin-bottom: 10%}</style>
+<main class="p-2 ">
     <div class=" container border bg-white">
 <!--        <button onclick="next()" style="margin: 0;width: 0%">next</button>-->
             <div class="float-left"><h3 class="m-3">Поиск:</h3>
@@ -24,7 +24,7 @@ if ($_COOKIE['login']=='') {
         <!--        <button onclick="next()" style="margin: 0;width: 0%">next</button>-->
         <!--подключаю бд и вывожу песни-->
         <div class="row clearfix">
-        <div class="float-left col">
+        <div class="float-left col-6">
         <?php
         $search=$_GET['search'];
         $number=0;
@@ -57,10 +57,10 @@ if ($_COOKIE['login']=='') {
         ?>
     </div>
 
-    <div class="float-right">
+    <div class="float-right col-6 ">
         <div><h2>Плейлисты</h2><button type="button" id="crt_list" class="btn btn-info m-2" data-toggle="modal" data-target="#exampleModal-p">Создать плейлист</button></div>
-        <div class="">
 
+        <div class="row">
         <?php
         $result=mysqli_query($connection, "SELECT `albums` FROM `users` WHERE `login`='$login'");
         while (($p_list=mysqli_fetch_assoc($result)))
@@ -71,14 +71,15 @@ if ($_COOKIE['login']=='') {
                 $result=mysqli_query($connection,"SELECT * FROM `playlists` WHERE `id`='$playlists[$i]'");
                 while (($list=mysqli_fetch_assoc($result))){
                     if($list['image']==''){$list['image']="img/vinyl.png";}
-                echo '<div class=""><button type="button" class="playlist" value="'.$playlists[$i].'" class="btn btn-info m-2" data-toggle="modal" data-target="#exampleModal-p" style="background: url('.$list['image'].') no-repeat">
-            <h2 class="text-white">'.$list['name'].'</h2>
-        </button></div>';
+                echo '<div class="float-left col-5"><button type="button" class="playlist" value="'.$playlists[$i].'" class="btn btn-info m-2" data-toggle="modal" data-target="#exampleModal-p" style="background: url('.$list['image'].') no-repeat">
+            <h2 class="text-white">'.$list['name'].'</h2></button></div>';
                 }
             }
         }
-        ?></div>
-        <div class="modal" id="exampleModal-p" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        ?>
+    </div></div>
+
+            <div class="modal" id="exampleModal-p" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -94,7 +95,9 @@ if ($_COOKIE['login']=='') {
                 </div>
             </div>
         </div>
-    </div>
+
+
+
     <script src="scripts/player.js"></script>
 
     </div>
