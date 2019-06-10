@@ -27,7 +27,7 @@ include 'includes/header.php';
         </div><?php
         }
         ?>
-        <button id="crt_list"></button>
+
 
         <div class="float-left" style="margin-left: 2rem">
             <h2>Альбомы</h2>
@@ -39,8 +39,9 @@ include 'includes/header.php';
                 {
                     $playlists=explode(",",$artist['albums']);
                     for ($i=0;$i<=count($playlists);$i++){
-                        $result=mysqli_query($connection,"SELECT * FROM `playlists` WHERE `id`='$i'");
+                        $result=mysqli_query($connection,"SELECT * FROM `playlists` WHERE `id`='$playlists[$i]'");
                         while (($list=mysqli_fetch_assoc($result))){
+                            if($list['image']==''){$list['image']="img/vinyl.png";}
                             echo '<button type="button" class="playlist" value="'.$list['id'].'" class="btn btn-info m-2" data-toggle="modal" data-target="#exampleModal-p" style="background: url('.$list['image'].') no-repeat">
             <h2 class="text-white">'.$list['name'].'</h2>
         </button>';

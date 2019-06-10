@@ -4,11 +4,32 @@ $name=$_POST['name'];
 $songlist=$_POST['songs'];
 $artist=$_POST['artist'];
 
+
+
+$errors=array();
+$file_name=$_FILES['file']['name'];
+$file_size=$_FILES['file']['size'];
+$file_tmp=$_FILES['file']['tmp_name'];
+$file_type=$_FILES['file']['type'];
+$file_ext=strtolower(end(explode('.',$_FILES['file']['name'])));
+$expensions=array('mpr3');
+move_uploaded_file($file_tmp,'../res/'.$file_name);
+
+$dest=$_POST['dest'];
+$aname=$_POST['artist'];
+$sname=$_POST['song'];
+
+
+
+
+
+
+
 $id;
 
 if($artist!='')
 {
-    $result = mysqli_query($connection,"INSERT INTO `playlists` (`id`, `name`, `author`, `image`, `songlist`, `type`) VALUES (NULL, '$name', '', '', '$songlist', 'album');");
+    $result = mysqli_query($connection,"INSERT INTO `playlists` (`id`, `name`, `author`, `image`, `songlist`, `type`) VALUES (NULL, '$name', '', 'img/$file_name', '$songlist', 'album');");
     $result=mysqli_query($connection, "SELECT * FROM `playlists` ORDER BY `id` DESC limit 1");
     while (($list=mysqli_fetch_assoc($result)))
     {
@@ -27,7 +48,7 @@ if($artist!='')
 
 
 }else{
-$result = mysqli_query($connection,"INSERT INTO `playlists` (`id`, `name`, `author`, `image`, `songlist`, `type`) VALUES (NULL, '$name', '', '', '$songlist', 'personal');");
+$result = mysqli_query($connection,"INSERT INTO `playlists` (`id`, `name`, `author`, `image`, `songlist`, `type`) VALUES (NULL, '$name', '', 'img/$file_name', '$songlist', 'personal');");
 $result=mysqli_query($connection, "SELECT * FROM `playlists` ORDER BY `id` DESC limit 1");
 
 while (($list=mysqli_fetch_assoc($result)))
