@@ -7,7 +7,7 @@ if ($_COOKIE['login']=='') {
 
 ?>
 <script src="js/jquery-3.4.1.min.js"></script>
-
+<style> .playlist{  width: 200px;height: 190px; background-size: cover; border-radius: 6px; margin-right: 1rem; margin-bottom: 15%}</style>
 <main class="p-2">
     <div class=" container border bg-white">
 <!--        <button onclick="next()" style="margin: 0;width: 0%">next</button>-->
@@ -24,7 +24,7 @@ if ($_COOKIE['login']=='') {
         <!--        <button onclick="next()" style="margin: 0;width: 0%">next</button>-->
         <!--подключаю бд и вывожу песни-->
         <div class="row clearfix">
-        <div class="float-left col-7">
+        <div class="float-left col">
         <?php
         $search=$_GET['search'];
         $number=0;
@@ -58,9 +58,9 @@ if ($_COOKIE['login']=='') {
     </div>
 
     <div class="float-right">
-        <div><h2>Плейлисты</h2><button type="button" id="crt_list" class="btn btn-info m-2" data-toggle="modal" data-target="#exampleModal-p">Создать</button></div>
-        <div class="row">
-        <style> .playlist{  width: 200px;height: 190px; background-size: cover; border-radius: 6px; margin-right: 1rem;}</style>
+        <div><h2>Плейлисты</h2><button type="button" id="crt_list" class="btn btn-info m-2" data-toggle="modal" data-target="#exampleModal-p">Создать плейлист</button></div>
+        <div class="">
+
         <?php
         $result=mysqli_query($connection, "SELECT `albums` FROM `users` WHERE `login`='$login'");
         while (($p_list=mysqli_fetch_assoc($result)))
@@ -71,7 +71,7 @@ if ($_COOKIE['login']=='') {
                 $result=mysqli_query($connection,"SELECT * FROM `playlists` WHERE `id`='$playlists[$i]'");
                 while (($list=mysqli_fetch_assoc($result))){
                     if($list['image']==''){$list['image']="img/vinyl.png";}
-                echo '<div class="col"><button type="button" class="playlist" value="'.$playlists[$i].'" class="btn btn-info m-2" data-toggle="modal" data-target="#exampleModal-p" style="background: url('.$list['image'].') no-repeat">
+                echo '<div class=""><button type="button" class="playlist" value="'.$playlists[$i].'" class="btn btn-info m-2" data-toggle="modal" data-target="#exampleModal-p" style="background: url('.$list['image'].') no-repeat">
             <h2 class="text-white">'.$list['name'].'</h2>
         </button></div>';
                 }

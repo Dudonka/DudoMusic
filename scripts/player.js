@@ -90,13 +90,6 @@ $(document).ready(function () {
     })
 
 
-
-
-
-
-
-
-
     $(".playlist").bind("click",function () {
         var id=$(this).attr('value');
         var name=$(this).find('h2').html();
