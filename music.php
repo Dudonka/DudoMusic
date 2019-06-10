@@ -18,6 +18,7 @@ if ($_COOKIE['login']=='') {
             </form></div>
 
         <?php include 'scripts/downloadwindow.php';?>
+
         <!--Подключаю плеер-->
         <div><audio id="player" controls='controls'src="" preload="auto" style="width: 90%; margin: 3%" /></div>
         <!--        <button onclick="next()" style="margin: 0;width: 0%">next</button>-->
@@ -55,8 +56,9 @@ if ($_COOKIE['login']=='') {
         }
         ?>
     </div>
+
     <div class="float-right">
-        <h2>Плейлисты</h2>
+        <div><h2>Плейлисты</h2><button type="button" id="crt_list" class="btn btn-info m-2" data-toggle="modal" data-target="#exampleModal-p">Создать</button></div>
         <div class="row">
         <style> .playlist{  width: 200px;height: 190px; background-size: cover; border-radius: 6px; margin-right: 1rem;}</style>
         <?php
@@ -68,9 +70,10 @@ if ($_COOKIE['login']=='') {
             for ($i=0;$i<=count($playlists);$i++){
                 $result=mysqli_query($connection,"SELECT * FROM `playlists` WHERE `id`='$playlists[$i]'");
                 while (($list=mysqli_fetch_assoc($result))){
-                echo '<button type="button" class="playlist" value="'.$playlists[$i].'" class="btn btn-info m-2" data-toggle="modal" data-target="#exampleModal-p" style="background: url('.$list['image'].') no-repeat">
+                    if($list['image']==''){$list['image']="img/vinyl.png";}
+                echo '<div class="col"><button type="button" class="playlist" value="'.$playlists[$i].'" class="btn btn-info m-2" data-toggle="modal" data-target="#exampleModal-p" style="background: url('.$list['image'].') no-repeat">
             <h2 class="text-white">'.$list['name'].'</h2>
-        </button>';
+        </button></div>';
                 }
             }
         }

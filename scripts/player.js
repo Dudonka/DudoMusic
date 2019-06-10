@@ -74,6 +74,29 @@ $(document).ready(function () {
         })
     })
 
+    $("#crt_list").bind("click",function () {
+
+        $('.modal-title').html('создать плейлист');
+        $.ajax({
+            url: "scripts/crt_list.php",
+            type: "POST",
+            data: ({}),
+            dataType: "html",
+            success: function (data){
+                $('.modal-body').html(data);
+
+            }
+        })
+    })
+
+
+
+
+
+
+
+
+
     $(".playlist").bind("click",function () {
         var id=$(this).attr('value');
         var name=$(this).find('h2').html();

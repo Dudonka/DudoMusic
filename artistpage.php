@@ -27,7 +27,7 @@ include 'includes/header.php';
         </div><?php
         }
         ?>
-
+        <button id="crt_list"></button>
 
         <div class="float-left" style="margin-left: 2rem">
             <h2>Альбомы</h2>
