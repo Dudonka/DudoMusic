@@ -1,16 +1,5 @@
 <?php
 
-if (isset($_FILES['file'])){
-    $errors=array();
-    $file_name=$_FILES['file']['name'];
-    $file_size=$_FILES['file']['size'];
-    $file_tmp=$_FILES['file']['tmp_name'];
-    $file_type=$_FILES['file']['type'];
-    $file_ext=strtolower(end(explode('.',$_FILES['file']['name'])));
-    $expensions=array('mpr3');
-    move_uploaded_file($file_tmp,'res/'.$file_name);
-}
-
 
 include 'connection.php';
 $login=$_COOKIE['login'];
@@ -20,7 +9,7 @@ $list=$songs['playlist'];
 $sing=explode(",",$list);
 ?><?php
 echo '<input id="pls_name" placeholder="Название плейлиста"><br>';
-echo '<input style="visibility: hidden;" name="dest" value="res/'.$file_name.'">';
+
 if($_COOKIE['type']=='admin'){echo '<input class="float-left" id="artist" placeholder="Альбом музыканта"><br>';}
 echo '<button class="float-left" id="crt_done">Добавить</button><br>';
 for ($i=0;$i<=count($sing)-1;$i++){
