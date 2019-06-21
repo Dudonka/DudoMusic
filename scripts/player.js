@@ -84,7 +84,6 @@ $(document).ready(function () {
             dataType: "html",
             success: function (data){
                 $('.modal-body').html(data);
-
             }
         })
     })
@@ -103,7 +102,6 @@ $(document).ready(function () {
             dataType: "html",
             success: function (data){
             $('.modal-body').html(data);
-
             }
         })
     })
